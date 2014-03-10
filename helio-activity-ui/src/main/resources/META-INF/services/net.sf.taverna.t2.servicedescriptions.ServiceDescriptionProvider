@@ -1,0 +1,5 @@
+org.helio.taverna.helio_taverna_suite.ui.serviceprovider.CEAServiceProvider
+org.helio.taverna.helio_taverna_suite.ui.serviceprovider.TapHelioServiceProvider
+org.helio.taverna.helio_taverna_suite.ui.serviceprovider.TapHelioQueryHelperServiceProvider
+org.helio.taverna.helio_taverna_suite.ui.serviceprovider.TapHelioOperatorServiceProvider
+org.helio.taverna.helio_taverna_suite.ui.serviceprovider.TopCatServiceProvider

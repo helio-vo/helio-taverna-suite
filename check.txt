@@ -1,0 +1,34 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] VAMDC Plugin Base
+[INFO] VAMDC activity UI bindings
+[INFO] Vamdc activity
+[INFO] VAMDC activity UI bindings
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building VAMDC Plugin Base 2.4.0
+[INFO] ------------------------------------------------------------------------
+Downloading: http://repo1.maven.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] VAMDC Plugin Base ................................. FAILURE [0.502s]
+[INFO] VAMDC activity UI bindings ........................ SKIPPED
+[INFO] Vamdc activity .................................... SKIPPED
+[INFO] VAMDC activity UI bindings ........................ SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 0.767s
+[INFO] Finished at: Tue Nov 13 17:19:57 GMT 2012
+[INFO] Final Memory: 4M/23M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Plugin org.apache.maven.plugins:maven-clean-plugin:2.4.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-clean-plugin:jar:2.4.1: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:pom:2.4.1 from/to central (http://repo1.maven.org/maven2): Error transferring file: repo1.maven.org: Unknown host repo1.maven.org -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginResolutionException

@@ -1,0 +1,6 @@
+org.helio.taverna.helio_taverna_suite.CEAActivityHealthChecker
+org.helio.taverna.helio_taverna_suite.TapHelioActivityHealthChecker
+org.helio.taverna.helio_taverna_suite.TapHelioQueryHelperHealthChecker
+org.helio.taverna.helio_taverna_suite.TapHelioOperatorHealthChecker
+org.helio.taverna.helio_taverna_suite.TopCatActivityHealthChecker
+
