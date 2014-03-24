@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.helio.taverna</groupId>
 		<artifactId>helio-taverna-suite</artifactId>
-		<version>0.2</version>
+		<version>0.2.1</version>
 	</parent>
 	<artifactId>helio-activity</artifactId>
 	<name>Helio activity</name>
@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>helio-common</artifactId>
-			<version>0.2</version>
+			<version>${project.version}</version>
 		</dependency>
 		
 		

@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.helio.taverna</groupId>
 		<artifactId>helio-taverna-suite</artifactId>
-		<version>0.2</version>
+		<version>0.2.1</version>
 	</parent>
 	<artifactId>helio-common</artifactId>
 	<name>Helio Common bindings</name>
