@@ -22,7 +22,7 @@ public class CeaRegBuilder {
 			
 		    Document results = reggie.getResource(ivoaID);
 		    NodeList nl = results.getDocumentElement().getElementsByTagName("title");
-		    System.out.println("nodelist of title for ceaapp:" + nl.getLength());
+		    //System.out.println("nodelist of title for ceaapp:" + nl.getLength());
 		   	String ceaName = nl.item(0).getFirstChild().getNodeValue();
 		    //String ceaName = nl.item(0).getTextContent();
 		   	//if(nl.item(0).getFirstChild())
@@ -117,16 +117,16 @@ public class CeaRegBuilder {
 		    java.io.StringWriter writer = new java.io.StringWriter();
 		    javax.xml.transform.Result result = new javax.xml.transform.stream.StreamResult(writer);
 		    xform.transform(src, result);
-		    System.out.println("XMLDOC=" + writer.toString());
+		    //System.out.println("XMLDOC=" + writer.toString());
 		    }catch(Exception e) {
 		    	e.printStackTrace();
 		    }
 		    NodeList nl = results.getDocumentElement().getElementsByTagNameNS("*","accessURL");
-		    System.out.println("XQuery ran = " + query);
-		    System.out.println("CEAnumber of nodelist found = " + nl.getLength());
+		    //System.out.println("XQuery ran = " + query);
+		    //System.out.println("CEAnumber of nodelist found = " + nl.getLength());
 		    
 		    if(results.getDocumentElement().hasChildNodes()) {
-			    System.out.println("URL CEA = " + results.getDocumentElement().getFirstChild().getTextContent() );
+			    //System.out.println("URL CEA = " + results.getDocumentElement().getFirstChild().getTextContent() );
 		    	return results.getDocumentElement().getFirstChild().getTextContent();
 		    }
 		    /*

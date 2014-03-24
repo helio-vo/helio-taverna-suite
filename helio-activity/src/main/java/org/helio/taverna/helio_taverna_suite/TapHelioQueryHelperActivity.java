@@ -52,7 +52,7 @@ public class TapHelioQueryHelperActivity extends
 		if(this.configBean == null) {
 			System.out.println("configbean is null in queryhelperconst");
 		}else {
-			System.out.println("good: configbean is not null in queryhelperconst");
+			//System.out.println("good: configbean is not null in queryhelperconst");
 		}
 
 		// OPTIONAL: 

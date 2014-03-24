@@ -90,13 +90,13 @@ public class UWSCaller {
         	}
         	Thread.sleep(10000);
         }while(!sPhase.contains("COMPLETED") && !sPhase.contains("ERROR") );
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+        //System.out.println("");
+        //System.out.println("");
+        //System.out.println("");
+        //System.out.println("");
         System.out.println("-------> Phase of executing ------->"+sPhase);
-        System.out.println("");
-        System.out.println("");
+        //System.out.println("");
+        //System.out.println("");
         String []sResult=null;
         //getting result
         if(sPhase.contains("COMPLETED")){
@@ -136,7 +136,7 @@ public class UWSCaller {
          int result = httpclient.executeMethod(get);
          int statuscode = get.getStatusCode();
          String results=get.getResponseBodyAsString();
-         System.out.println(results);
+         //System.out.println(results);
          ArrayList<String> resArr = new ArrayList<String>();
          Hashtable<String,String> ht = new Hashtable();
          if(results!=null && !results.equals("")){
@@ -146,9 +146,9 @@ public class UWSCaller {
          			strURL.substring(0,strURL.indexOf("/",7)) + results.substring(results.indexOf("xlink:href")+12,results.indexOf("\"",results.indexOf("xlink:href")+12))
          		);
         		//resArr.add(results.substring(results.indexOf("xlink:href")+12,results.indexOf("\"",results.indexOf("xlink:href")+12)));
-        		System.out.println("Placed in arr = " + strURL.substring(0,strURL.indexOf("/",7)) + (results.substring(results.indexOf("xlink:href")+12,results.indexOf("\"",results.indexOf("xlink:href")+12)))   );
+        		//System.out.println("Placed in arr = " + strURL.substring(0,strURL.indexOf("/",7)) + (results.substring(results.indexOf("xlink:href")+12,results.indexOf("\"",results.indexOf("xlink:href")+12)))   );
         		results = results.substring(results.indexOf("xlink:href")+12);
-        		System.out.println("new results = " + results);
+        		//System.out.println("new results = " + results);
         	 
         	}
         	 
@@ -193,7 +193,7 @@ public class UWSCaller {
          HttpClient httpclient = new HttpClient();
          int result = httpclient.executeMethod(post);
          int statuscode = post.getStatusCode();
-         System.out.println(post.getResponseBodyAsString());
+         //System.out.println(post.getResponseBodyAsString());
     }
     /**
      * 
@@ -212,7 +212,7 @@ public class UWSCaller {
     	 HttpClient httpclient = new HttpClient();
          int result = httpclient.executeMethod(post);
          int statuscode = post.getStatusCode();
-         System.out.println(post.getResponseBodyAsString());
+         //System.out.println(post.getResponseBodyAsString());
     }
     /**
      * @param filename
@@ -252,7 +252,7 @@ public class UWSCaller {
                 {
             	
                     Header header = post.getResponseHeader("location");
-                    System.out.println("   :  Header  :  "+header);
+                    //System.out.println("   :  Header  :  "+header);
                     if (header != null)
                     {
                         String newuri = header.getValue();
@@ -264,7 +264,7 @@ public class UWSCaller {
                     	return null;
                     }
                 }else{
-                	System.out.println(post.getResponseBodyAsString());
+                	//System.out.println(post.getResponseBodyAsString());
                 }
         } finally {
             // Release current connection to the connection pool 

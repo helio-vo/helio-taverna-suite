@@ -22,7 +22,7 @@ public class TopCatServiceProvider implements ServiceDescriptionProvider {
 			FindServiceDescriptionsCallBack callBack) {
 		// Use callback.status() for long-running searches
 		// callBack.status("Resolving example services");
-System.out.println("SYSTEM PATH = " + System.getProperty("java.class.path"));
+		//System.out.println("SYSTEM PATH = " + System.getProperty("java.class.path"));
 
 		List<ServiceDescription> results = new ArrayList<ServiceDescription>();
 

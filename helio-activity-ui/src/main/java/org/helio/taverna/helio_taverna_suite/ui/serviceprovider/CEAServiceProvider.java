@@ -56,14 +56,14 @@ public class CEAServiceProvider implements ServiceDescriptionProvider {
             if(userConf.exists()) {
                     File myceaList = new File(userConf,"my_cealist.properties");
                     if(myceaList.exists()) {
-                            System.out.println("loaded from my_cealist.properties");
+                            //System.out.println("loaded from my_cealist.properties");
                             p.load(new FileInputStream(myceaList));
                             myceaListExists = true;
                     }
             }
             if(!myceaListExists) {
             	String []appsFromReg = UWSQueryHelper.getQueryHelperInfo(reggie);
-            	System.out.println("No defined app file found, grab all from the Registry.");
+            	//System.out.println("No defined app file found, grab all from the Registry.");
             	for(int i = 0;i < appsFromReg.length;i++) {
                 	p.setProperty("my.ceaapp." + i, appsFromReg[i]);
             	}
@@ -82,10 +82,10 @@ public class CEAServiceProvider implements ServiceDescriptionProvider {
 			while(propertyKeys.hasMoreElements()) {
 				val = (String)propertyKeys.nextElement();
 				if(val.startsWith("my.ceaapp")) {
-					System.out.println("look up registry app: " + val);
+					//System.out.println("look up registry app: " + val);
 					AppInterfaces []ai = CeaRegBuilder.getCEAApp(p.getProperty(val),reggie);
 					if(ai != null) {
-						System.out.println("app interfaces found:" + ai.length);
+						//System.out.println("app interfaces found:" + ai.length);
 						for(int m = 0;m < ai.length;m++) {
 							CEAServiceDesc ceaService = new CEAServiceDesc();
 							ceaService.setCeaInterfaceName(ai[m].getName());
@@ -108,9 +108,9 @@ public class CEAServiceProvider implements ServiceDescriptionProvider {
 			ceaService.setDescription("Recover an Application results that was started in the past.");
 			results.add(ceaService);
 			*/
-			System.out.println("results size = " + results.size());
+			//System.out.println("results size = " + results.size());
 			for(int k = 0;k < results.size();k++) {
-				System.out.println("results name loop = " + results.get(k).getName());
+				//System.out.println("results name loop = " + results.get(k).getName());
 				
 			}
 

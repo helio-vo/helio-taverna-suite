@@ -82,11 +82,11 @@ public class TapQueryHelper {
 			query += "<soapURL>{$x/capability[@standardID='ivo://helio-vo.eu/std/HELIO-TAP']/interface/accessURL[@asyncservice='false' and @sqlenabled='true' and @status='active' and @use='webservice']}</soapURL>";
 			query += "</ResourceInfo></MyResults>";
 
-			System.out.println("xquery_helio_thd: " + query);
+			//System.out.println("xquery_helio_thd: " + query);
 		    Document results = reggie.executeXquery(query);
 		    NodeList nlRes = results.getDocumentElement().getElementsByTagName("ResourceInfo");
 		    TapQueryHelperData []tq = new TapQueryHelperData[nlRes.getLength()];
-		    System.out.println("xquery_helio_thd_length: " + nlRes.getLength());
+		    //System.out.println("xquery_helio_thd_length: " + nlRes.getLength());
 		    for(int ii = 0;ii < nlRes.getLength();ii++) {
 			    NodeList nl = ((Element)nlRes.item(ii)).getElementsByTagName("title");
 			    NodeList nlRestURL = ((Element)nlRes.item(ii)).getElementsByTagName("restURL");
@@ -98,12 +98,12 @@ public class TapQueryHelper {
 			   	}
 			    
 			    nl =  ((Element)nlRes.item(ii)).getElementsByTagName("identifier");
-			    System.out.println("nl length = " + nl.getLength());
+			    //System.out.println("nl length = " + nl.getLength());
 			    String ivoaID = null;
 			    if(nl.getLength() > 0) {
 			    	ivoaID = nl.item(0).getTextContent().trim();
 			   	}
-			    System.out.println("ivoaid: " + ivoaID);
+			    //System.out.println("ivoaid: " + ivoaID);
 
 			    String restURL = null; 
 			    NodeList nlAccessURL = null;
@@ -122,7 +122,7 @@ public class TapQueryHelper {
 						soapURL = nlAccessURL.item(0).getTextContent().trim();
 					}
 				}
-				System.out.println("_thd_1 title: " + title + " soapURL: " + soapURL);
+				//System.out.println("_thd_1 title: " + title + " soapURL: " + soapURL);
 				tq[ii] = new TapQueryHelperData(title,ivoaID,restURL,soapURL,null);
 
 		    }

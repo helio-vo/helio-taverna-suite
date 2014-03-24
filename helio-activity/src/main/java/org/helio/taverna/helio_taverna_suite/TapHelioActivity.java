@@ -96,9 +96,9 @@ public class TapHelioActivity extends
 
 				Set<String> inputKeys = inputs.keySet();
 	    		String []tmpKeys = inputKeys.toArray(new String[0]);
-	    		for(int k = 0;k < tmpKeys.length;k++) {
-	    			System.out.println("keyset k = " + k + " value = " + tmpKeys[k]);
-	    		}
+	    		//for(int k = 0;k < tmpKeys.length;k++) {
+	    		//	System.out.println("keyset k = " + k + " value = " + tmpKeys[k]);
+	    		//}
 
 				
 				String startTime = null;
@@ -132,17 +132,17 @@ public class TapHelioActivity extends
 					ref = (Boolean) referenceService.renderIdentifier(inputs.get("URL Output Reference Only"), Boolean.class, context);
 				}
 					    		
-	    		System.out.println("ref = " + ref);
+	    		//System.out.println("ref = " + ref);
 	    		
 	    		List<String> url_ivorn = (List<String>)referenceService.renderIdentifier(inputs.get("URL or Registry Ivorn"), String.class, context);
-	    		System.out.println("urlivorn length = " + url_ivorn.size());
+	    		//System.out.println("urlivorn length = " + url_ivorn.size());
 			    List<String> resultVotable = new ArrayList();
 
 			    String urlQuery = "";
 	    		for(int j = 0;j < url_ivorn.size();j++) {
 	    			boolean error = false;
 	    			String testLook = url_ivorn.get(j);
-	    			System.out.println("testlook: " + testLook);
+	    			//System.out.println("testlook: " + testLook);
 	    			urlQuery="http://www.test.com/test.jsp";
 	    			//System.out.println("SIZE OF STRING ARRAY: "  + testLook.length);
 	    			
@@ -208,20 +208,20 @@ public class TapHelioActivity extends
 							urlQuery += "?REQUEST=doQuery&LANG=ADQL&FORMAT=VOTABLE&QUERY=" + java.net.URLEncoder.encode(queryString,"UTF-8");
 						}
 						
-					    System.out.println("Resulting URL:  " + urlQuery.toString().toString() + " Interface Type: " + configBean.getInterfaceType());
+					    //System.out.println("Resulting URL:  " + urlQuery.toString().toString() + " Interface Type: " + configBean.getInterfaceType());
 
 						if(ref != null && ref.equals(true)) {
-							System.out.println("ok adding urlquery, ref true");
+							//System.out.println("ok adding urlquery, ref true");
 							resultVotable.add(urlQuery.toString());
 						}else if(configBean.getInterfaceType() == 0 || configBean.getInterfaceType() == 2) {
-							System.out.println("ref false so grabbign votable.");
+							//System.out.println("ref false so grabbign votable.");
 						    StringWriter resultOutput = new StringWriter();
 						    TransformerFactory.newInstance().newTransformer().transform(new StreamSource(new URL(urlQuery.toString()).openStream()), new StreamResult(resultOutput));
 						    resultVotable.add(resultOutput.toString());
 						}else if(configBean.getInterfaceType() == 1) {
 							//do soap request
 						}else {
-							System.out.println("ERROR interfaceType not 0-2");
+							//System.out.println("ERROR interfaceType not 0-2");
 						}
 					}catch(Exception e) {
 						e.printStackTrace();

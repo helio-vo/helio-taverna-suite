@@ -90,15 +90,15 @@ public class TopCatActivity extends
 
 				Set<String> inputKeys = inputs.keySet();
 	    		String []tmpKeys = inputKeys.toArray(new String[0]);
-	    		for(int k = 0;k < tmpKeys.length;k++) {
-	    			System.out.println("keyset k = " + k + " value = " + tmpKeys[k]);
-	    		}
+	    		//for(int k = 0;k < tmpKeys.length;k++) {
+	    		//	System.out.println("keyset k = " + k + " value = " + tmpKeys[k]);
+	    		//}
 	    		String []arg = null;
 	    		String param = "";
 				if(inputs.containsKey("Optional URL")) {
 					String optionalURL = (String) referenceService.renderIdentifier(inputs.get("Optional URL"), String.class, context);
 					
-					System.out.println("optionalURL = " + optionalURL);
+					//System.out.println("optionalURL = " + optionalURL);
 					if(optionalURL != null && optionalURL.trim().length() > 0) {
 						param = optionalURL;
 						arg = new String[1];
@@ -106,20 +106,20 @@ public class TopCatActivity extends
 					}
 				}
 				
-				System.out.println("REPODIR: " + ApplicationRuntime.getInstance().getLocalRepositoryDir().toString());
+				//System.out.println("REPODIR: " + ApplicationRuntime.getInstance().getLocalRepositoryDir().toString());
 				String topCatJarPath = ApplicationRuntime.getInstance().getLocalRepositoryDir().toString() +
 				"/uk/ac/starlink/topcat-lite/3.8/topcat-lite-3.8.jar";
 				//String []cmd2;
 				//cmd2 = {"java","-jar",topCatJarPath};
 				try {					
 					if(param.length() > 0) {
-						System.out.println("COMMAND2: ");
+						//System.out.println("COMMAND2: ");
 						Process topcatRun = Runtime.getRuntime().exec(new String[]{"java","-jar",topCatJarPath,param});
 					}else {
 						Process topcatRun = Runtime.getRuntime().exec(new String[]{"java","-jar",topCatJarPath});
 					}
 				}catch(Exception e) {
-					System.out.println("Exception message: " + e.getMessage());
+					//System.out.println("Exception message: " + e.getMessage());
 					e.printStackTrace();
 				}
 				//topcatRun

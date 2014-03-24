@@ -44,7 +44,7 @@ public class CEAActivity extends
 		// Store for getConfiguration(), but you could also make
 		// getConfiguration() return a new bean from other sources
 		this.configBean = configBean;
-		System.out.println("configbean in ceaactivity identi = " + configBean.getCeaIvorn());
+		//System.out.println("configbean in ceaactivity identi = " + configBean.getCeaIvorn());
 
 		// OPTIONAL: 
 		// Do any server-side lookups and configuration, like resolving WSDLs
@@ -171,10 +171,10 @@ public class CEAActivity extends
 					for(int i = 0;i < ap.length;i++) {
 						indirect = false;
 						Iterator iterDebug = inputs.keySet().iterator();
-						while(iterDebug.hasNext()) {
-							System.out.println("input keys = " + iterDebug.next());
-						}
-						System.out.println("uiname = " + ap[i].getUIName());
+						//while(iterDebug.hasNext()) {
+							//System.out.println("input keys = " + iterDebug.next());
+						//}
+						//System.out.println("uiname = " + ap[i].getUIName());
 						//ceaInput = (String) referenceService.renderIdentifier(inputs.get("CeaAppIvorn"), String.class, context);
 						if(inputs.containsKey(ap[i].getUIName())) {
 							ceaInput = (String) referenceService.renderIdentifier(inputs.get(ap[i].getUIName()), String.class, context);
@@ -205,11 +205,11 @@ public class CEAActivity extends
 				toolXMLStr += "</tool>";
 				java.io.File toolFile = null;
 				try {
-					System.out.println("tool xml: " + toolXMLStr);
+					//System.out.println("tool xml: " + toolXMLStr);
 				StringReader sr = new StringReader(toolXMLStr);
 				toolFile = java.io.File.createTempFile("taverna",".wkfl");
 				toolFile.deleteOnExit();
-				System.out.println("toolfile tostring: " + toolFile.toString());
+				//System.out.println("toolfile tostring: " + toolFile.toString());
 				TransformerFactory.newInstance().newTransformer().transform(new StreamSource(sr), new StreamResult(new java.io.FileOutputStream(toolFile)));
 				//results = UWSCaller.uwsCaller(configBean.getAppInterface().getManagedAppServiceLocation(),toolFile);
 				uwsLocation = UWSCaller.uwsCaller(configBean.getAppInterface().getManagedAppServiceLocation(),toolFile);
@@ -230,7 +230,7 @@ public class CEAActivity extends
 				//Call Registry for url
 				
 				if(results.size() == 0) {
-					System.out.println("results size = " + results.size());
+					//System.out.println("results size = " + results.size());
 
 					//A cheat for now.
 					ap = configBean.getAppInterface().getOutputParameters();
@@ -241,9 +241,9 @@ public class CEAActivity extends
 							 uwsLocTmp = uwsLocTmp.substring(0,uwsLocTmp.indexOf("uws/jobs"));
 							 //uwsLocTmp += uwsLocation.substring(uwsLocation.indexOf("uws/jobs")+8);
 						 }
-						 System.out.println("uwsloctmp = " + uwsLocTmp);
+						 //System.out.println("uwsloctmp = " + uwsLocTmp);
 						 T2Reference simpleRefHack = referenceService.register(uwsLocTmp+"jobs"+uwsLocation.substring(uwsLocation.indexOf("uws/jobs")+8) + "/" + ap[i].getId(), 0, true, context);
-						 System.out.println("placing uiname = " + ap[i].getUIName() + " with value = " + uwsLocation+"/jobs/" + ap[i].getId());
+						 //System.out.println("placing uiname = " + ap[i].getUIName() + " with value = " + uwsLocation+"/jobs/" + ap[i].getId());
 						 outputs.put(ap[i].getUIName(), simpleRefHack);
 					}//for
 					
@@ -253,19 +253,19 @@ public class CEAActivity extends
 				    	String key = (String)e.nextElement();
 				    	String urlVal = results.get(key);
 				    	ap = configBean.getAppInterface().getOutputParameters();
-				    	System.out.println("key = " + key + " url = " + urlVal + " and aplength = " + ap.length);			    	
+				    	//System.out.println("key = " + key + " url = " + urlVal + " and aplength = " + ap.length);			    	
 				    	for(int i = 0;i < ap.length;i++) {
-				    		System.out.println("ap id = " + ap[i].getId());
+				    		//System.out.println("ap id = " + ap[i].getId());
 				    		if(ap[i].getId().equals(key)) {
 				    			T2Reference simpleRef = referenceService.register(urlVal, 0, true, context);
-				    			System.out.println("placing uiname = " + ap[i].getUIName() + " with value = " + urlVal);
+				    			//System.out.println("placing uiname = " + ap[i].getUIName() + " with value = " + urlVal);
 								outputs.put(ap[i].getUIName(), simpleRef);
 				    		}
 				    	}
 				         //System.out.println(e.nextElement());
 				    }
 				}
-			    System.out.println("now do callback, all finished");
+			    //System.out.println("now do callback, all finished");
 				//j
 				//TransformerFactory.newInstance().newTransformer().transform(new DOMSource(toolDoc), new StreamResult(new java.io.FileOutputStream(toolFile)));
 				

@@ -7,7 +7,7 @@ public class AppInterfaces {
 	 	this.name = name;
 	 	this.ceaName = ceaName;
 	 	this.ivoIdent = ivoIdent;
-	 	System.out.println("setting up managedapp loc = " + managedAppServiceLocation);
+	 	//System.out.println("setting up managedapp loc = " + managedAppServiceLocation);
 	 	this.managedAppServiceLocation=managedAppServiceLocation;
 	}
 	

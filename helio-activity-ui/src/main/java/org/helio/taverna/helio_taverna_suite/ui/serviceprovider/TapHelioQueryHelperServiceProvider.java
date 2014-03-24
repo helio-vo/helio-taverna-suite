@@ -54,7 +54,7 @@ public class TapHelioQueryHelperServiceProvider implements ServiceDescriptionPro
 						TapQueryHelperData []thd = TapQueryHelper.getQueryHelperInfo(reggie);
 						for(int k = 0;k < thd.length;k++) {
 							TapHelioQueryHelperServiceDesc tapHelioService = new TapHelioQueryHelperServiceDesc();
-							System.out.println("_thd_title_: " + thd[k].getTitle() + " k: " + k + " identifier: " + thd[k].getIdentifier() + " soapurl: " + thd[k].getSoapURL());
+							//System.out.println("_thd_title_: " + thd[k].getTitle() + " k: " + k + " identifier: " + thd[k].getIdentifier() + " soapurl: " + thd[k].getSoapURL());
 							tapHelioService.setTapQueryHelperData(thd[k]);
 							results.add(tapHelioService);
 						}
