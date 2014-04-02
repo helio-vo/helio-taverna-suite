@@ -84,6 +84,9 @@
 	</dependencies>
 
 	<repositories>
+	
+	<!-- 
+	Staging repository to not be used 
 <repository>
                          <id>mygrid-staging-repository</id>
                          <name>myGrid Staging Repository</name>
@@ -94,8 +97,8 @@
                                  <enabled>false</enabled>
                          </snapshots>
                  </repository>
+                 -->
 
-<!--
 		<repository>
 			<releases />
 			<snapshots>
@@ -105,7 +108,6 @@
 			<name>myGrid Repository</name>
 			<url>http://www.mygrid.org.uk/maven/repository</url>
 		</repository>
--->
 		
 		  <repository>
                         <releases />
