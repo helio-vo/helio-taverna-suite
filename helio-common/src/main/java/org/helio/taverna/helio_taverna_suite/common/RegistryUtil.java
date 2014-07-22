@@ -22,6 +22,7 @@ public class RegistryUtil {
 			File homeDir = ApplicationRuntime.getInstance().getApplicationHomeDir();
 			
 			File userConf = new File(homeDir,"conf");
+			System.out.println("userConf dir: " + userConf.toString());
 			if(userConf.exists()) {
 				File myceaList = new File(userConf,"helio.properties");
 				if(myceaList.exists()) {
@@ -42,7 +43,7 @@ public class RegistryUtil {
 		}else {
 			//"http://localhost:8080/tap_reg/services/RegistryQueryv1_0"
 			//System.out.println("creating reg:  http://msslkz.mssl.ucl.ac.uk/helio_registry/services/RegistryQueryv1_0");
-			reggie = new Registry("http://msslkz.mssl.ucl.ac.uk/helio_registry/services/RegistryQueryv1_0");
+			reggie = new Registry("http://helio.mssl.ucl.ac.uk/helio_registry/services/RegistryQueryv1_0");
 		}
 		return reggie;
 	}

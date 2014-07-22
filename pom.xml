@@ -116,7 +116,7 @@
                         </snapshots>
                         <id>helio-mssl-repository</id>
                         <name>Helio MSSL Repository</name>
-                        <url>http://msslkz.mssl.ucl.ac.uk/helio_taverna/helio_repository/</url>
+                        <url>http://helio.mssl.ucl.ac.uk/helio_taverna/helio_repository/</url>
                 </repository>
                 
                 <!-- NEED TO INVESTIGATE.  HAD TO USE VAMDC_REPOSITORY FOR ASTROGRID POMS
