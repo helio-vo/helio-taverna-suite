@@ -100,7 +100,6 @@ public class CeaRegBuilder {
 	private static String getCEAService(String ivoaID, Registry reggie) {
 		try {
 			ArrayList<String> ids = new ArrayList<String>();
-			//Registry reggie = new Registry("http://casx019-zone1.ast.cam.ac.uk/registry/services/RegistryQueryv1_0");
 		    String query = 
 		        "declare namespace ri='http://www.ivoa.net/xml/RegistryInterface/v1.0'; " +
 		        "declare namespace xsi='http://www.w3.org/2001/XMLSchema-instance'; " +
@@ -125,16 +124,24 @@ public class CeaRegBuilder {
 		    //System.out.println("XQuery ran = " + query);
 		    //System.out.println("CEAnumber of nodelist found = " + nl.getLength());
 		    
-		    if(results.getDocumentElement().hasChildNodes()) {
+		    //if(results.getDocumentElement().hasChildNodes()) {
 			    //System.out.println("URL CEA = " + results.getDocumentElement().getFirstChild().getTextContent() );
-		    	return results.getDocumentElement().getFirstChild().getTextContent();
-		    }
-		    /*
-		   	if(nl.getLength() > 0) {
-		   		return nl.item(0).getFirstChild().getNodeValue();
+		    	//return results.getDocumentElement().getFirstChild().getTextContent();
+		    //}
+		    String ceaURL = null;
+		    boolean urlAvailable = false;
+			if(nl.getLength() > 0) {
+				for(int accessURLLength = 0;accessURLLength < nl.getLength() && !urlAvailable;accessURLLength++) {
+					ceaURL = nl.item(accessURLLength).getTextContent().trim();
+					urlAvailable=RegistryUtil.pingURL(ceaURL);
+				}
 		   	}
-		   	*/
-		   	return null;
+			
+			if(!urlAvailable) {
+				ceaURL = null;
+			}
+			System.out.println("CEAURL found: " + ceaURL + " for ivoaid: " + ivoaID);
+			return ceaURL;
 		} catch (RegistryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

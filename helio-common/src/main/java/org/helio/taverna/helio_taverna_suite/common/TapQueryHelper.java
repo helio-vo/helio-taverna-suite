@@ -107,20 +107,39 @@ public class TapQueryHelper {
 
 			    String restURL = null; 
 			    NodeList nlAccessURL = null;
+			    boolean urlAvailable = false;
 				if(nlRestURL.getLength() > 0) {
-					nlAccessURL = ((Element)nlRestURL.item(0)).getElementsByTagName("accessURL");
-					if(nlAccessURL.getLength() > 0) {
-						restURL = nlAccessURL.item(0).getTextContent().trim();
+					for(int urlLength = 0; urlLength < nlRestURL.getLength() && !urlAvailable; urlLength++) {
+						nlAccessURL = ((Element)nlRestURL.item(urlLength)).getElementsByTagName("accessURL");
+						if(nlAccessURL.getLength() > 0) {
+							for(int accessURLLength = 0;accessURLLength < nlAccessURL.getLength() && !urlAvailable;accessURLLength++) {
+								restURL = nlAccessURL.item(accessURLLength).getTextContent().trim();
+								urlAvailable=RegistryUtil.pingURL(restURL);
+							}
+						}
 					}
 				}
+				if(!urlAvailable) {
+					restURL = null;
+				}
 				
+			    urlAvailable = false;
+
 				String soapURL = null; 
 
 				if(nlSoapURL.getLength() > 0) {
-				    nlAccessURL = ((Element)nlSoapURL.item(0)).getElementsByTagName("accessURL");
-					if(nlAccessURL.getLength() > 0) {
-						soapURL = nlAccessURL.item(0).getTextContent().trim();
+					for(int urlLength = 0; urlLength < nlRestURL.getLength() && !urlAvailable; urlLength++) {
+						nlAccessURL = ((Element)nlSoapURL.item(urlLength)).getElementsByTagName("accessURL");
+						if(nlAccessURL.getLength() > 0) {
+							for(int accessURLLength = 0;accessURLLength < nlAccessURL.getLength() && !urlAvailable;accessURLLength++) {
+								soapURL = nlAccessURL.item(0).getTextContent().trim();
+								urlAvailable=RegistryUtil.pingURL(soapURL);
+							}
+						}
 					}
+				}
+				if(!urlAvailable) {
+					soapURL = null;
 				}
 				//System.out.println("_thd_1 title: " + title + " soapURL: " + soapURL);
 				tq[ii] = new TapQueryHelperData(title,ivoaID,restURL,soapURL,null);
@@ -135,6 +154,8 @@ public class TapQueryHelper {
 		}
 		return null;
 	}	
+	
+	
 	
 	
 }

@@ -28,6 +28,7 @@ public class UWSQueryHelper {
 			query += "<AppIdentifier>{$x//applicationReference}</AppIdentifier>";
 			query += "</ResourceInfo></MyResults>";
 			
+			//System.out.println("Helio Reg endpoint: " + reggie.registryEndpoint());
 		    Document results = reggie.executeXquery(query);
 		    NodeList nl = results.getDocumentElement().getElementsByTagName("applicationReference");
 		    ArrayList<String> appRef = new ArrayList<String>();
